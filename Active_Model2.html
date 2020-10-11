@@ -3,9 +3,8 @@
     <head>
         <meta charset="utf-8">
           <title>CADTools Active Model</title>
-        <script src="src/creojs.js"></script>
-        <script type="text/creojs">
-            function getActiveModelName () {
+        <script type="text/creojs" src="src/creojs.js">
+                function getActiveModelName () {
                 const model = pfcGetCurrentSession ().GetActiveModel ()
                 if (!model) throw "No Active Model"
                 return pfcGetCurrentSession ().GetActiveModel ().FileName;
@@ -14,7 +13,7 @@
     </head>
     <body>
             <button onclick="populateActiveModelName ()">Push It!</button><br>
-              <b>Active model:</b> 
+              <b>Active model:</b><span id="MODELNAME"></span> 
                  <script>
                       function populateActiveModelName () {
                         CreoJS.getActiveModelName ()
